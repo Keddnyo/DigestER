@@ -28,16 +28,17 @@ import io.github.keddnyo.digester.entities.Forum;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private final ArrayList<Forum> forumArrayList = new ArrayList<>();
 
-    Context context;
+    final Context context;
 
     public RecyclerViewAdapter(Context context) {
         this.context = context;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        MaterialCardView cardView;
-        ImageView icon;
-        TextView title, subtitle;
+        final MaterialCardView cardView;
+        final ImageView icon;
+        final TextView title;
+        final TextView subtitle;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.cardView = itemView.findViewById(R.id.forumCardView);

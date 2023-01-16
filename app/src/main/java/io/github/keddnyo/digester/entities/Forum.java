@@ -4,12 +4,16 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.StringRes;
 
 public class Forum {
-    int id, recursive;
-    boolean hasApps;
+    final int id;
+    final int recursive;
+    final boolean hasApps;
     @StringRes
+    final
     int title;
-    @StringRes int subtitle;
+    @StringRes
+    final int subtitle;
     @DrawableRes
+    final
     int icon;
 
     public Forum(int id, int recursive, boolean hasApps, int title, int subtitle, int icon) {
