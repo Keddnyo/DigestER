@@ -1,12 +1,22 @@
 package io.github.keddnyo.digester.activities;
 
+import static io.github.keddnyo.digester.repositories.Constants.FORUM_ID;
+import static io.github.keddnyo.digester.repositories.Constants.FORUM_SUBTITLE;
+import static io.github.keddnyo.digester.repositories.Constants.FORUM_TITLE;
+import static io.github.keddnyo.digester.repositories.Constants.HAS_APPS;
+import static io.github.keddnyo.digester.repositories.Constants.RECURSIVE;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Objects;
+
 import io.github.keddnyo.digester.R;
+import io.github.keddnyo.digester.requests.DigestRequest;
 import io.github.keddnyo.digester.utils.DateValidator;
 
 public class RequestActivity extends AppCompatActivity {
@@ -21,6 +31,17 @@ public class RequestActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        Intent intent = getIntent();
+        String forumTitle = intent.getStringExtra(FORUM_TITLE);
+        String forumSubtitle = intent.getStringExtra(FORUM_SUBTITLE);
+        int forumId = intent.getIntExtra(FORUM_ID, 212);
+        int recursive = intent.getIntExtra(RECURSIVE, 0);
+        boolean hasApps = intent.getBooleanExtra(HAS_APPS, false);
+
+        Objects.requireNonNull(getSupportActionBar()).setTitle(forumTitle);
+        Objects.requireNonNull(getSupportActionBar()).setSubtitle(forumSubtitle);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         EditText requestPeriodStart, requestPeriodEnd;
         Button requestSubmitButton;
 
@@ -28,28 +49,29 @@ public class RequestActivity extends AppCompatActivity {
         requestPeriodEnd = findViewById(R.id.requestPeriodEnd);
         requestSubmitButton = findViewById(R.id.requestSubmitButton);
 
-        DateValidator dateValidator = new DateValidator();
-
         requestSubmitButton.setOnClickListener(v -> {
             String periodStart, periodEnd;
 
             periodStart = requestPeriodStart.getText().toString();
             periodEnd = requestPeriodEnd.getText().toString();
 
-            String dateIsEmpty = getString(R.string.date_is_empty);
             String dateIncorrect = getString(R.string.date_incorrect);
 
-            if (!periodStart.equals("")) {
-                requestPeriodStart.setError(dateIsEmpty);
-            } else if (!periodEnd.equals("")) {
-                requestPeriodEnd.setError(dateIsEmpty);
-            } else if (dateValidator.isDateInvalid(periodStart)) {
+            DateValidator dateValidator = new DateValidator();
+
+            if (dateValidator.isDateInvalid(periodStart)) {
                 requestPeriodStart.setError(dateIncorrect);
             } else if (dateValidator.isDateInvalid(periodEnd)) {
                 requestPeriodEnd.setError(dateIncorrect);
             } else {
-
+                new DigestRequest(this, forumId, forumTitle, forumSubtitle, recursive, hasApps, periodStart, periodEnd).getDigest();
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

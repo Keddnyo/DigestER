@@ -13,6 +13,7 @@
             android:id="@+id/digestResponse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/content_padding"
             android:singleLine="false" />
 
     </ScrollView>

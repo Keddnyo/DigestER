@@ -22,6 +22,7 @@ import com.google.android.material.card.MaterialCardView;
 import java.util.ArrayList;
 
 import io.github.keddnyo.digester.R;
+import io.github.keddnyo.digester.activities.RequestActivity;
 import io.github.keddnyo.digester.entities.Forum;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -61,7 +62,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.subtitle.setText(forum.getSubtitle());
 
         holder.cardView.setOnClickListener(v -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(context, RequestActivity.class);
             intent.putExtra(FORUM_ID, forum.getId());
             intent.putExtra(FORUM_TITLE, context.getString(forum.getTitle()));
             intent.putExtra(FORUM_SUBTITLE, context.getString(forum.getSubtitle()));

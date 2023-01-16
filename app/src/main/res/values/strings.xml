@@ -15,6 +15,5 @@
     <string name="period_end">Period end</string>
     <string name="submit">Submit</string>
 
-    <string name="date_is_empty">Date error</string>
     <string name="date_incorrect">Date incorrect</string>
 </resources>
