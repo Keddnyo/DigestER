@@ -5,10 +5,9 @@ import android.annotation.SuppressLint;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class DateValidator {
+public class DateUtils {
     @SuppressLint("SimpleDateFormat")
     private final SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-
     public boolean isDateInvalid(String date) {
         try {
             format.parse(date);

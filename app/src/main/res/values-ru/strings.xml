@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Дайджест</string>
+
+    <string name="choose_forum">Выберите раздел</string>
+
     <string name="wearable_devices">Носимые устройства</string>
     <string name="book_store">Книжная лавка</string>
 
@@ -13,5 +17,9 @@
     <string name="period_end">Конец периода</string>
     <string name="submit">Продолжить</string>
 
+    <string name="choose_date_range">Укажите период</string>
     <string name="date_incorrect">Неверная дата</string>
+
+    <string name="response_copy">Скопировать</string>
+    <string name="response_copied_to_clipboard">Скопировано в буфер обмена</string>
 </resources>

@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name" translatable="false">DigestER</string>
+    <string name="app_name">DigestER</string>
+
+    <string name="choose_forum">Choose forum</string>
 
     <string name="android" translatable="false">Android</string>
     <string name="wearable_devices">Wearable devices</string>
@@ -15,5 +17,9 @@
     <string name="period_end">Period end</string>
     <string name="submit">Submit</string>
 
+    <string name="choose_date_range">Choose date range</string>
     <string name="date_incorrect">Date incorrect</string>
+
+    <string name="response_copy">Copy response</string>
+    <string name="response_copied_to_clipboard">Copied to clipboard</string>
 </resources>

@@ -1,5 +1,7 @@
 package io.github.keddnyo.digester.requests;
 
+import static io.github.keddnyo.digester.repositories.Constants.DATE_PERIOD_END;
+import static io.github.keddnyo.digester.repositories.Constants.DATE_PERIOD_START;
 import static io.github.keddnyo.digester.repositories.Constants.FORUM_SUBTITLE;
 import static io.github.keddnyo.digester.repositories.Constants.FORUM_TITLE;
 import static io.github.keddnyo.digester.repositories.Constants.RESPONSE;
@@ -18,10 +20,14 @@ import io.github.keddnyo.digester.activities.ResponseActivity;
 import io.github.keddnyo.digester.utils.AsyncTask;
 
 public class DigestRequest implements AsyncTask {
-    Context context;
-    int forumId, recursive;
-    boolean hasApps;
-    String forumTitle, forumSubtitle, periodStart, periodEnd;
+    final Context context;
+    final int forumId;
+    final int recursive;
+    final boolean hasApps;
+    final String forumTitle;
+    final String forumSubtitle;
+    final String periodStart;
+    final String periodEnd;
 
     public DigestRequest(Context context, int forumId, String forumTitle, String forumSubtitle, int recursive, boolean hasApps, String periodStart, String periodEnd) {
         this.context = context;
@@ -68,6 +74,9 @@ public class DigestRequest implements AsyncTask {
 
                 Intent intent = new Intent(context, ResponseActivity.class);
                 intent.putExtra(FORUM_TITLE, forumTitle);
+                intent.putExtra(FORUM_SUBTITLE, forumSubtitle);
+                intent.putExtra(DATE_PERIOD_START, periodStart);
+                intent.putExtra(DATE_PERIOD_END, periodEnd);
                 intent.putExtra(FORUM_SUBTITLE, forumSubtitle);
                 intent.putExtra(RESPONSE, response);
                 context.startActivity(intent);

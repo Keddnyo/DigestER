@@ -17,7 +17,7 @@ import java.util.Objects;
 
 import io.github.keddnyo.digester.R;
 import io.github.keddnyo.digester.requests.DigestRequest;
-import io.github.keddnyo.digester.utils.DateValidator;
+import io.github.keddnyo.digester.utils.DateUtils;
 
 public class RequestActivity extends AppCompatActivity {
 
@@ -38,8 +38,8 @@ public class RequestActivity extends AppCompatActivity {
         int recursive = intent.getIntExtra(RECURSIVE, 0);
         boolean hasApps = intent.getBooleanExtra(HAS_APPS, false);
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle(forumTitle);
-        Objects.requireNonNull(getSupportActionBar()).setSubtitle(forumSubtitle);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.choose_date_range));
+        Objects.requireNonNull(getSupportActionBar()).setSubtitle(forumTitle + " - " + forumSubtitle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         EditText requestPeriodStart, requestPeriodEnd;
@@ -57,11 +57,11 @@ public class RequestActivity extends AppCompatActivity {
 
             String dateIncorrect = getString(R.string.date_incorrect);
 
-            DateValidator dateValidator = new DateValidator();
+            DateUtils dateUtils = new DateUtils();
 
-            if (dateValidator.isDateInvalid(periodStart)) {
+            if (dateUtils.isDateInvalid(periodStart)) {
                 requestPeriodStart.setError(dateIncorrect);
-            } else if (dateValidator.isDateInvalid(periodEnd)) {
+            } else if (dateUtils.isDateInvalid(periodEnd)) {
                 requestPeriodEnd.setError(dateIncorrect);
             } else {
                 new DigestRequest(this, forumId, forumTitle, forumSubtitle, recursive, hasApps, periodStart, periodEnd).getDigest();
