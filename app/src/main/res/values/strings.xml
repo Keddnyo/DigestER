@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">DigestER</string>
+
+    <string name="android" translatable="false">Android</string>
+    <string name="wearable_devices">Wearable devices</string>
+    <string name="book_store">Book store</string>
+
+    <string name="apps">Apps</string>
+    <string name="games">Games</string>
+    <string name="book_depository">Book depository</string>
+
+    <string name="forum_icon">Forum icon</string>
+
+    <string name="period_start">Period start</string>
+    <string name="period_end">Period end</string>
+    <string name="submit">Submit</string>
+
+    <string name="date_is_empty">Date error</string>
+    <string name="date_incorrect">Date incorrect</string>
+</resources>
