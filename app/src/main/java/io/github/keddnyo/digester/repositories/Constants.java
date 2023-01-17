@@ -10,4 +10,5 @@ public class Constants {
     public static final String DATE_PERIOD_START = "date_period_start";
     public static final String DATE_PERIOD_END = "date_period_end";
     public static final int RESPONSE_TIMEOUT = 30000;
+    public static final String GITHUB_REPOSITORY_URL = "https://github.com/Keddnyo/DigestER";
 }

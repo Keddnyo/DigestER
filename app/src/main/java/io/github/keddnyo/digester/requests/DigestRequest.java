@@ -94,9 +94,7 @@ public class DigestRequest implements AsyncTask {
                     errorMessage = errorHasOccurred;
                 }
 
-                handler.post(() -> {
-                    Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show();
-                });
+                handler.post(() -> Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show());
             }
         });
     }

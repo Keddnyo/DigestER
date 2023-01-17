@@ -2,6 +2,7 @@
     <string name="app_name">DigestER</string>
 
     <string name="choose_forum">Choose forum</string>
+    <string name="about">About</string>
 
     <string name="android" translatable="false">Android</string>
     <string name="wearable_devices">Wearable devices</string>

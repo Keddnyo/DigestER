@@ -15,8 +15,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -52,7 +51,7 @@ public class ResponseActivity extends AppCompatActivity {
             clipboard.setPrimaryClip(clip);
 
             String textCopied = getString(R.string.response_copied_to_clipboard);
-            Snackbar.make(digestResponseTextView, textCopied, Snackbar.LENGTH_LONG).show();
+            Toast.makeText(this, textCopied, Toast.LENGTH_LONG).show();
         });
     }
     @Override

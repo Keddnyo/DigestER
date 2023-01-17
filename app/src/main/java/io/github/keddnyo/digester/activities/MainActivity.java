@@ -1,9 +1,15 @@
 package io.github.keddnyo.digester.activities;
 
+import static io.github.keddnyo.digester.repositories.Constants.GITHUB_REPOSITORY_URL;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import java.util.Objects;
 
@@ -26,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
         rv.setAdapter(recyclerViewAdapter);
         recyclerViewAdapter.addForums(new Forums().getForumArrayList());
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(GITHUB_REPOSITORY_URL));
+        startActivity(intent);
+
+        return true;
     }
 
 }
