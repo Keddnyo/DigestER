@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">DigestER</string>
 
-    <string name="choose_forum">Choose forum</string>
+    <string name="select_forum_section">Select a forum section</string>
     <string name="about">About</string>
 
     <string name="android" translatable="false">Android</string>
@@ -12,15 +12,14 @@
     <string name="games">Games</string>
     <string name="book_depository">Book depository</string>
 
-    <string name="forum_icon">Forum icon</string>
-    <string name="forum_open_link">Open 4PDA forum</string>
+    <string name="forum_section_icon">A forum section icon</string>
+    <string name="forum_section_open_link">Open 4PDA forum section</string>
 
-    <string name="period_start">Period start</string>
-    <string name="period_end">Period end</string>
+    <string name="choose_date_range">Specify date range</string>
+    <string name="date_range_start">Date range start</string>
+    <string name="date_range_end">Date range end</string>
+    <string name="date_incorrect">The date is incorrect</string>
     <string name="submit">Submit</string>
-
-    <string name="choose_date_range">Choose date range</string>
-    <string name="date_incorrect">Date incorrect</string>
 
     <string name="error_has_occurred">Error has occurred</string>
 

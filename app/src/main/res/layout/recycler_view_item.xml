@@ -26,7 +26,7 @@
                 android:id="@+id/forumIcon"
                 android:layout_width="@dimen/card_view_icon_size"
                 android:layout_height="@dimen/card_view_icon_size"
-                android:contentDescription="@string/forum_icon"
+                android:contentDescription="@string/forum_section_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -62,7 +62,7 @@
                 android:id="@+id/forumRoute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/forum_open_link"
+                android:contentDescription="@string/forum_section_open_link"
                 android:padding="5dp"
                 android:src="@drawable/ic_route"
                 app:layout_constraintEnd_toEndOf="parent"

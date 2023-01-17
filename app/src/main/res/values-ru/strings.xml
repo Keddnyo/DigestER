@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Дайджест</string>
 
-    <string name="choose_forum">Выберите раздел</string>
+    <string name="select_forum_section">Выберите раздел</string>
     <string name="about">О программе</string>
 
     <string name="wearable_devices">Носимые устройства</string>
@@ -12,15 +12,14 @@
     <string name="games">Игры</string>
     <string name="book_depository">Книгохранилище</string>
 
-    <string name="forum_icon">Иконка раздела</string>
-    <string name="forum_open_link">Открыть раздел на 4PDA</string>
-
-    <string name="period_start">Начало периода</string>
-    <string name="period_end">Конец периода</string>
-    <string name="submit">Продолжить</string>
+    <string name="forum_section_icon">Иконка раздела</string>
+    <string name="forum_section_open_link">Открыть раздел на 4PDA</string>
 
     <string name="choose_date_range">Укажите период</string>
+    <string name="date_range_start">Начало периода</string>
+    <string name="date_range_end">Конец периода</string>
     <string name="date_incorrect">Неверная дата</string>
+    <string name="submit">Продолжить</string>
 
     <string name="error_has_occurred">Ошибка получения дайджеста</string>
 

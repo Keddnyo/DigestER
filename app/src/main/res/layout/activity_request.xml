@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/content_padding"
-                    android:hint="@string/period_start"
+                    android:hint="@string/date_range_start"
                     android:importantForAutofill="no"
                     android:inputType="date" />
 
@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/content_padding"
-                    android:hint="@string/period_end"
+                    android:hint="@string/date_range_end"
                     android:importantForAutofill="no"
                     android:inputType="date" />
 

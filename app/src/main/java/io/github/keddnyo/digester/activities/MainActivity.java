@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.choose_forum));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.select_forum_section));
 
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this);
 
