@@ -8,6 +8,7 @@ import static io.github.keddnyo.digester.repositories.Constants.RECURSIVE;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,13 +37,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final MaterialCardView cardView;
-        final ImageView icon;
+        final ImageView icon, route;
         final TextView title;
         final TextView subtitle;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.cardView = itemView.findViewById(R.id.forumCardView);
             this.icon = itemView.findViewById(R.id.forumIcon);
+            this.route = itemView.findViewById(R.id.forumRoute);
             this.title = itemView.findViewById(R.id.forumTitle);
             this.subtitle = itemView.findViewById(R.id.forumSubtitle);
         }
@@ -61,6 +64,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.icon.setImageResource(forum.getIcon());
         holder.title.setText(forum.getTitle());
         holder.subtitle.setText(forum.getSubtitle());
+
+        holder.route.setOnClickListener(v -> {
+            String url = "https://4pda.to/forum/index.php?showforum=" + forum.getId();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            context.startActivity(intent);
+        });
 
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, RequestActivity.class);

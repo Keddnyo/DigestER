@@ -12,6 +12,7 @@
     <string name="book_depository">Book depository</string>
 
     <string name="forum_icon">Forum icon</string>
+    <string name="forum_open_link">Open 4PDA forum</string>
 
     <string name="period_start">Period start</string>
     <string name="period_end">Period end</string>
@@ -19,6 +20,8 @@
 
     <string name="choose_date_range">Choose date range</string>
     <string name="date_incorrect">Date incorrect</string>
+
+    <string name="error_has_occurred">Error has occurred</string>
 
     <string name="response_copy">Copy response</string>
     <string name="response_copied_to_clipboard">Copied to clipboard</string>

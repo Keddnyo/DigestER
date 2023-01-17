@@ -7,8 +7,9 @@ import static io.github.keddnyo.digester.repositories.Constants.FORUM_TITLE;
 import static io.github.keddnyo.digester.repositories.Constants.RESPONSE;
 import static io.github.keddnyo.digester.repositories.Constants.RESPONSE_TIMEOUT;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
+import android.widget.Toast;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -16,11 +17,12 @@ import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
 
+import io.github.keddnyo.digester.R;
 import io.github.keddnyo.digester.activities.ResponseActivity;
 import io.github.keddnyo.digester.utils.AsyncTask;
 
 public class DigestRequest implements AsyncTask {
-    final Context context;
+    final Activity context;
     final int forumId;
     final int recursive;
     final boolean hasApps;
@@ -29,7 +31,7 @@ public class DigestRequest implements AsyncTask {
     final String periodStart;
     final String periodEnd;
 
-    public DigestRequest(Context context, int forumId, String forumTitle, String forumSubtitle, int recursive, boolean hasApps, String periodStart, String periodEnd) {
+    public DigestRequest(Activity context, int forumId, String forumTitle, String forumSubtitle, int recursive, boolean hasApps, String periodStart, String periodEnd) {
         this.context = context;
         this.forumId = forumId;
         this.forumTitle = forumTitle;
@@ -51,7 +53,7 @@ public class DigestRequest implements AsyncTask {
                     digestType = "digest2.php?";
                 }
 
-                String urlBuilder = "https://" + "4pda.to" + "/forum/" + digestType + "act=nocache&f=" + forumId + "&" + "date_from=" + periodStart + "&" + "date_to=" + periodEnd + "&" + "recursive=" + recursive;
+                String urlBuilder = "https://4pda.to/forum/" + digestType + "act=nocache&f=" + forumId + "&" + "date_from=" + periodStart + "&" + "date_to=" + periodEnd + "&" + "recursive=" + recursive;
 
                 URL url = new URL(urlBuilder);
 
@@ -81,7 +83,20 @@ public class DigestRequest implements AsyncTask {
                 intent.putExtra(RESPONSE, response);
                 context.startActivity(intent);
             } catch (Exception e) {
-                e.printStackTrace();
+                String errorHasOccurred = context.getString(R.string.error_has_occurred);
+
+                String errorMessage;
+                if (e.getLocalizedMessage() != null) {
+                    errorMessage = e.getLocalizedMessage();
+                } else if (e.getMessage() != null) {
+                    errorMessage = e.getMessage();
+                } else {
+                    errorMessage = errorHasOccurred;
+                }
+
+                handler.post(() -> {
+                    Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show();
+                });
             }
         });
     }

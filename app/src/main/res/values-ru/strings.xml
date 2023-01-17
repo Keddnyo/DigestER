@@ -12,6 +12,7 @@
     <string name="book_depository">Книгохранилище</string>
 
     <string name="forum_icon">Иконка раздела</string>
+    <string name="forum_open_link">Открыть раздел на 4PDA</string>
 
     <string name="period_start">Начало периода</string>
     <string name="period_end">Конец периода</string>
@@ -19,6 +20,8 @@
 
     <string name="choose_date_range">Укажите период</string>
     <string name="date_incorrect">Неверная дата</string>
+
+    <string name="error_has_occurred">Ошибка получения дайджеста</string>
 
     <string name="response_copy">Скопировать</string>
     <string name="response_copied_to_clipboard">Скопировано в буфер обмена</string>
