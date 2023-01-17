@@ -4,10 +4,11 @@
 <a href="https://github.com/Keddnyo/DigestER/releases/latest"><img src="https://img.shields.io/github/downloads/keddnyo/digester/latest/total?label=Latest%20downloads&style=for-the-badge"></a>
 
 ## Features
-1. Forum section list
-2. Date range picker
-3. Digest copying
-4. Light & Dark themes
+1. Android 4.1+
+2. Light & Dark themes
+3. Forum section list
+4. Date range picker
+5. Digest copying
 
 ## Screenshots
 <p align="center">
