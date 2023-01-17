@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 public class DateUtils {
     @SuppressLint("SimpleDateFormat")
     private final SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+
     public boolean isDateInvalid(String date) {
         try {
             format.parse(date);

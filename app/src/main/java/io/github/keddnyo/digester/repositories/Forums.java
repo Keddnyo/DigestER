@@ -10,6 +10,7 @@ public class Forums {
     public static final int ANDROID_GAMES = 213;
     public static final int WEARABLE_DEVICES_APPS = 810;
     public static final int BOOK_STORE = 218;
+
     public ArrayList<Forum> getForumArrayList() {
         ArrayList<Forum> forumArrayList = new ArrayList<>();
 

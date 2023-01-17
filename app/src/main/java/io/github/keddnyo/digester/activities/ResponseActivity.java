@@ -54,6 +54,7 @@ public class ResponseActivity extends AppCompatActivity {
             Toast.makeText(this, textCopied, Toast.LENGTH_LONG).show();
         });
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

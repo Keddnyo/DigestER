@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -38,7 +39,7 @@ public class RequestActivity extends AppCompatActivity {
         int recursive = intent.getIntExtra(RECURSIVE, 0);
         boolean hasApps = intent.getBooleanExtra(HAS_APPS, false);
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.choose_date_range));
+        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.specify_date_range));
         Objects.requireNonNull(getSupportActionBar()).setSubtitle(forumTitle + " - " + forumSubtitle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -65,6 +66,7 @@ public class RequestActivity extends AppCompatActivity {
                 requestPeriodEnd.setError(dateIncorrect);
             } else {
                 new DigestRequest(this, forumId, forumTitle, forumSubtitle, recursive, hasApps, periodStart, periodEnd).getDigest();
+                Toast.makeText(this, getString(R.string.request_sent), Toast.LENGTH_LONG).show();
             }
         });
     }

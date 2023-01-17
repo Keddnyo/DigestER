@@ -15,12 +15,13 @@
     <string name="forum_section_icon">Иконка раздела</string>
     <string name="forum_section_open_link">Открыть раздел на 4PDA</string>
 
-    <string name="choose_date_range">Укажите период</string>
+    <string name="specify_date_range">Укажите период</string>
     <string name="date_range_start">Начало периода</string>
     <string name="date_range_end">Конец периода</string>
     <string name="date_incorrect">Неверная дата</string>
     <string name="submit">Продолжить</string>
 
+    <string name="request_sent">Запрос отправлен</string>
     <string name="error_has_occurred">Ошибка получения дайджеста</string>
 
     <string name="response_copy">Скопировать</string>

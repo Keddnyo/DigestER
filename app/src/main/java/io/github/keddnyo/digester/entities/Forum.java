@@ -8,13 +8,11 @@ public class Forum {
     final int recursive;
     final boolean hasApps;
     @StringRes
-    final
-    int title;
+    final int title;
     @StringRes
     final int subtitle;
     @DrawableRes
-    final
-    int icon;
+    final int icon;
 
     public Forum(int id, int recursive, boolean hasApps, int title, int subtitle, int icon) {
         this.id = id;
@@ -40,6 +38,7 @@ public class Forum {
     public int getTitle() {
         return title;
     }
+
     public int getSubtitle() {
         return subtitle;
     }
