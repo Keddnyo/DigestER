@@ -1,10 +1,12 @@
 package io.github.keddnyo.digester.adapters;
 
 import static io.github.keddnyo.digester.repositories.Constants.FORUM_ID;
+import static io.github.keddnyo.digester.repositories.Constants.FORUM_MAIN_URL;
 import static io.github.keddnyo.digester.repositories.Constants.FORUM_SUBTITLE;
 import static io.github.keddnyo.digester.repositories.Constants.FORUM_TITLE;
 import static io.github.keddnyo.digester.repositories.Constants.HAS_APPS;
 import static io.github.keddnyo.digester.repositories.Constants.RECURSIVE;
+import static io.github.keddnyo.digester.repositories.Constants.DIGEST_TOPIC_LINK;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,10 +26,10 @@ import java.util.ArrayList;
 
 import io.github.keddnyo.digester.R;
 import io.github.keddnyo.digester.activities.RequestActivity;
-import io.github.keddnyo.digester.entities.Forum;
+import io.github.keddnyo.digester.entities.ForumSection;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private final ArrayList<Forum> forumArrayList = new ArrayList<>();
+    private final ArrayList<ForumSection> forumSectionArrayList = new ArrayList<>();
 
     final Context context;
 
@@ -40,14 +42,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final ImageView icon, route;
         final TextView title;
         final TextView subtitle;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.cardView = itemView.findViewById(R.id.forumCardView);
-            this.icon = itemView.findViewById(R.id.forumIcon);
-            this.route = itemView.findViewById(R.id.forumRoute);
-            this.title = itemView.findViewById(R.id.forumTitle);
-            this.subtitle = itemView.findViewById(R.id.forumSubtitle);
+            this.cardView = itemView.findViewById(R.id.forumSectionCardView);
+            this.icon = itemView.findViewById(R.id.forumSectionIcon);
+            this.route = itemView.findViewById(R.id.forumSectionRoute);
+            this.title = itemView.findViewById(R.id.forumSectionTitle);
+            this.subtitle = itemView.findViewById(R.id.forumSectionSubtitle);
         }
     }
 
@@ -59,14 +60,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
-        Forum forum = forumArrayList.get(position);
+        ForumSection forumSection = forumSectionArrayList.get(position);
 
-        holder.icon.setImageResource(forum.getIcon());
-        holder.title.setText(forum.getTitle());
-        holder.subtitle.setText(forum.getSubtitle());
+        holder.icon.setImageResource(forumSection.getIcon());
+        holder.title.setText(forumSection.getTitle());
+        holder.subtitle.setText(forumSection.getSubtitle());
 
         holder.route.setOnClickListener(v -> {
-            String url = "https://4pda.to/forum/index.php?showforum=" + forum.getId();
+            String url = FORUM_MAIN_URL + forumSection.getId();
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(url));
             context.startActivity(intent);
@@ -74,22 +75,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(context, RequestActivity.class);
-            intent.putExtra(FORUM_ID, forum.getId());
-            intent.putExtra(FORUM_TITLE, context.getString(forum.getTitle()));
-            intent.putExtra(FORUM_SUBTITLE, context.getString(forum.getSubtitle()));
-            intent.putExtra(RECURSIVE, forum.getRecursive());
-            intent.putExtra(HAS_APPS, forum.getHasApps());
+            intent.putExtra(FORUM_ID, forumSection.getId());
+            intent.putExtra(FORUM_TITLE, forumSection.getTitle());
+            intent.putExtra(FORUM_SUBTITLE, forumSection.getSubtitle());
+            intent.putExtra(RECURSIVE, forumSection.getRecursive());
+            intent.putExtra(HAS_APPS, forumSection.getHasApps());
+            intent.putExtra(DIGEST_TOPIC_LINK, forumSection.getTopicLink());
             context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
-        return forumArrayList.size();
+        return forumSectionArrayList.size();
     }
 
-    public void addForums(ArrayList<Forum> forums) {
-        forumArrayList.addAll(forums);
-        notifyItemRangeInserted(0, forums.size());
+    public void addForums(ArrayList<ForumSection> forumSections) {
+        forumSectionArrayList.addAll(forumSections);
+        notifyItemRangeInserted(0, forumSections.size());
     }
 }

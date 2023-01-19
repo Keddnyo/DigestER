@@ -1,67 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/forumSectionCardView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
     tools:context=".activities.RequestActivity">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/forumCardView"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="5dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_max="@dimen/card_view_max_width">
+        android:orientation="vertical"
+        android:padding="@dimen/content_padding">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/requestProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/content_padding"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/requestHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/requestHeader" />
+
+        <ImageView
+            android:id="@+id/requestCloseDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/close_dialog"
+            android:padding="@dimen/content_padding"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/requestHeader"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/content_padding"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/content_padding">
+            android:padding="@dimen/content_padding"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/requestPeriodStart"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/content_padding"
-                    android:hint="@string/date_range_start"
-                    android:importantForAutofill="no"
-                    android:inputType="date" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/requestPeriodEnd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/content_padding"
-                    android:hint="@string/date_range_end"
-                    android:importantForAutofill="no"
-                    android:inputType="date" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/requestSubmitButton"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/requestForumTitle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/content_padding"
-                android:text="@string/submit" />
+                android:text="@string/android"
+                android:textSize="@dimen/card_view_title_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/requestForumSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/apps"
+                android:textSize="@dimen/card_view_subtitle_size" />
 
         </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+        <LinearLayout
+            android:id="@+id/requestDateRangeLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requestHeader">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/requestPeriodStart"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="@dimen/content_padding"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/date_range_hint"
+                android:importantForAutofill="no"
+                android:inputType="date"
+                android:maxLength="10"
+                app:layout_constraintTop_toBottomOf="@+id/requestHeader"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="20dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center" />
+
+            <EditText
+                android:id="@+id/requestPeriodEnd"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="@dimen/content_padding"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="@string/date_range_hint"
+                android:importantForAutofill="no"
+                android:inputType="date"
+                android:maxLength="10"
+                app:layout_constraintTop_toBottomOf="@+id/requestPeriodStart"
+                tools:layout_editor_absoluteX="10dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/requestSubmitButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="@dimen/content_padding"
+            android:drawableEnd="@drawable/ic_submit"
+            android:drawableRight="@drawable/ic_submit"
+            android:text="@string/submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/requestDateRangeLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+
+

@@ -13,7 +13,8 @@
         tools:targetApi="33">
         <activity
             android:name=".activities.RequestActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.DigestER.Dialog" />
         <activity
             android:name=".activities.ResponseActivity"
             android:exported="false" />

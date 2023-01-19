@@ -5,10 +5,10 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/forumCardView"
+        android:id="@+id/forumSectionCardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:cardElevation="5dp"
+        app:cardElevation="3dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,7 +23,7 @@
             android:padding="@dimen/content_padding">
 
             <ImageView
-                android:id="@+id/forumIcon"
+                android:id="@+id/forumSectionIcon"
                 android:layout_width="@dimen/card_view_icon_size"
                 android:layout_height="@dimen/card_view_icon_size"
                 android:contentDescription="@string/forum_section_icon"
@@ -32,26 +32,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/linearLayout"
+                android:id="@+id/forumSectionTitleRow"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:orientation="vertical"
                 android:padding="@dimen/content_padding"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/forumRoute"
-                app:layout_constraintStart_toEndOf="@+id/forumIcon"
+                app:layout_constraintEnd_toStartOf="@+id/forumSectionRoute"
+                app:layout_constraintStart_toEndOf="@+id/forumSectionIcon"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/forumTitle"
+                    android:id="@+id/forumSectionTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/card_view_title_size"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/forumSubtitle"
+                    android:id="@+id/forumSectionSubtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/card_view_subtitle_size" />
@@ -59,7 +59,8 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/forumRoute"
+                android:background="?attr/selectableItemBackground"
+                android:id="@+id/forumSectionRoute"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/forum_section_open_link"

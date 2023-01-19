@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Дайджест</string>
-
     <string name="select_forum_section">Выберите раздел</string>
+    <string name="repository">Репозиторий</string>
     <string name="about">О программе</string>
+    <string name="about_message">Программу разработал Keddnyo</string>
 
     <string name="wearable_devices">Носимые устройства</string>
     <string name="book_store">Книжная лавка</string>
@@ -15,15 +15,17 @@
     <string name="forum_section_icon">Иконка раздела</string>
     <string name="forum_section_open_link">Открыть раздел на 4PDA</string>
 
-    <string name="specify_date_range">Укажите период</string>
-    <string name="date_range_start">Начало периода</string>
-    <string name="date_range_end">Конец периода</string>
+    <string name="update_is_available">Доступно обновление: %1$s</string>
+    <string name="update_download">Скачать</string>
+    <string name="update_is_downloading">Загрузка обновления…</string>
+
+    <string name="close_dialog">Закрыть окно</string>
     <string name="date_incorrect">Неверная дата</string>
     <string name="submit">Продолжить</string>
 
-    <string name="request_sent">Запрос отправлен</string>
     <string name="error_has_occurred">Ошибка получения дайджеста</string>
 
-    <string name="response_copy">Скопировать</string>
-    <string name="response_copied_to_clipboard">Скопировано в буфер обмена</string>
+    <string name="response_public_digest">Опубликовать</string>
+    <string name="response_empty">Обновлений нет</string>
+    <string name="response_copied_to_clipboard">Дайджест скопирован</string>
 </resources>
