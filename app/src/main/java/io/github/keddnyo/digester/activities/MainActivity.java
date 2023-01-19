@@ -8,7 +8,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements AsyncTask {
             String appName = getString(R.string.app_name);
             String appVersion = new Application().getVersionName(this);
 
-            if (item.getItemId() == R.id.mainMenuAbout) {
+            if (item.getItemId() == R.id.menuMainAbout) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
                 alertDialogBuilder.setTitle(appName + " " + appVersion);
                 alertDialogBuilder.setMessage(R.string.about_message);
