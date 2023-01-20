@@ -7,8 +7,10 @@ import static io.github.keddnyo.digester.repositories.Constants.DIGEST_TOPIC_LIN
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.text.HtmlCompat;
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
@@ -25,7 +27,7 @@ import io.github.keddnyo.digester.utils.Clipboard;
 
 public class ResponseActivity extends AppCompatActivity {
 
-    private boolean showPreview = false;
+    private boolean showPreview;
     TextView digestResponseTextView;
     String digestTopicLink;
     String digestResponse;
@@ -47,8 +49,9 @@ public class ResponseActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        digestResponseTextView.setText(digestResponse);
-        setSubtitle(showPreview);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        showPreview = !sharedPreferences.getBoolean("settings_digest_use_preview", false);
+        switchPreviewMode(showPreview);
     }
 
     @Override
@@ -79,15 +82,7 @@ public class ResponseActivity extends AppCompatActivity {
             digestTopicIntent.setData(Uri.parse(digestTopicLink));
             startActivity(digestTopicIntent);
         } else if (item.getItemId() == R.id.menuResponsePreview) {
-            if (showPreview) {
-                digestResponseTextView.setText(digestResponse);
-                showPreview = false;
-            } else {
-                digestResponseTextView.setText(digestHtmlResponse);
-                showPreview = true;
-            }
-
-            setSubtitle(showPreview);
+            switchPreviewMode(showPreview);
         } else {
             onBackPressed();
         }
@@ -95,11 +90,15 @@ public class ResponseActivity extends AppCompatActivity {
         return true;
     }
 
-    private void setSubtitle(boolean isPreviewShown) {
+    private void switchPreviewMode(boolean isPreviewShown) {
         if (isPreviewShown) {
-            Objects.requireNonNull(getSupportActionBar()).setSubtitle(R.string.response_basic_preview);
-        } else {
+            digestResponseTextView.setText(digestResponse);
             Objects.requireNonNull(getSupportActionBar()).setSubtitle(R.string.response_code_preview);
+            showPreview = false;
+        } else {
+            digestResponseTextView.setText(digestHtmlResponse);
+            Objects.requireNonNull(getSupportActionBar()).setSubtitle(R.string.response_basic_preview);
+            showPreview = true;
         }
     }
 }

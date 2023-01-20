@@ -22,7 +22,8 @@
             android:theme="@style/Theme.DigestER.Dialog" />
         <activity
             android:name=".activities.ResponseActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="@string/response_digest_title" />
         <activity
             android:name=".activities.MainActivity"
             android:exported="true">

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements AsyncTask {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle(getString(R.string.select_forum_section));
+        Objects.requireNonNull(getSupportActionBar()).setSubtitle(getString(R.string.select_forum_section));
 
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this);
 
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements AsyncTask {
         if (sharedPreferences.getBoolean("settings_check_app_updates", true)) {
             new UpdateRequest(this).checkForUpdates();
         }
-
     }
 
     @Override

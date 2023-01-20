@@ -1,6 +1,16 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory android:title="@string/response_digest_title">
+
+        <SwitchPreferenceCompat
+            android:key="settings_digest_use_preview"
+            android:defaultValue="false"
+            android:icon="@drawable/ic_preview"
+            android:title="@string/response_basic_preview" />
+
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/settings_updates">
 
         <SwitchPreferenceCompat
@@ -14,8 +24,8 @@
     <PreferenceCategory android:title="@string/about">
 
         <Preference
-            android:key="settings_about"
             android:icon="@drawable/ic_about"
+            android:key="settings_about"
             android:summary="@string/about_message"
             android:title="@string/app_name" />
 
