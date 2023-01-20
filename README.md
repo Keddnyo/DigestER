@@ -12,8 +12,8 @@
 
 ## Screenshots
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/65981689/213773426-243ccb4f-9577-4970-accc-1b0012af539f.jpg" max-width="100%" width="33%">
-  <img src="https://user-images.githubusercontent.com/65981689/213773432-822939da-4624-40a7-ab84-d0b28103e628.jpg" max-width="100%" width="33%">
+  <img src="https://user-images.githubusercontent.com/65981689/213773434-7831f346-80bc-4ecf-86c9-9d17d1a8ebc9.jpg" max-width="100%" width="33%">
+  <img src="https://user-images.githubusercontent.com/65981689/213773441-da822b08-92a8-41df-b7ac-da7bcc680621.jpg" max-width="100%" width="33%">
 </p>
 
 [Показать на русском](https://github.com/Keddnyo/DigestER/blob/master/README.ru-RU.md)
