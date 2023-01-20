@@ -3,8 +3,11 @@
     <string name="app_name">Дайджест</string>
 
     <string name="select_forum_section">Выберите раздел</string>
-    <string name="repository">Репозиторий</string>
+    <string name="settings">Настройки</string>
+    <string name="settings_updates">Обновления</string>
+    <string name="settings_updates_observer">Проверять обновления</string>
     <string name="about">О программе</string>
+    <string name="repository">Репозиторий</string>
     <string name="about_message">Приложение разработал Keddnyo</string>
 
     <string name="wearable_devices">Носимые устройства</string>
@@ -31,6 +34,5 @@
     <string name="response_basic_preview">Упрощённый режим</string>
     <string name="response_public_preview">Предосмотр</string>
     <string name="response_public_digest">Опубликовать</string>
-    <string name="response_empty">Обновлений нет</string>
     <string name="response_copied_to_clipboard">Дайджест скопирован</string>
 </resources>

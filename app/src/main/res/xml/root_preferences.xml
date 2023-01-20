@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/settings_updates">
+
+        <SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:icon="@drawable/ic_update"
+            android:key="settings_check_app_updates"
+            android:title="@string/settings_updates_observer" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/about">
+
+        <Preference
+            android:key="settings_about"
+            android:icon="@drawable/ic_about"
+            android:summary="@string/about_message"
+            android:title="@string/app_name" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

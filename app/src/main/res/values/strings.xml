@@ -2,11 +2,14 @@
 <resources>
     <string name="app_name">DigestER</string>
 
-    <string name="select_forum_section">Select a forumSection section</string>
-    <string name="repository">Repository</string>
-    <string name="github" translatable="false">GitHub</string>
-    <string name="four_pda" translatable="false">4PDA</string>
+    <string name="select_forum_section">Select a forum section</string>
+    <string name="settings">Settings</string>
+    <string name="settings_updates">Updates</string>
+    <string name="settings_updates_observer">Check for updates</string>
     <string name="about">About</string>
+    <string name="repository">Repository</string>
+    <string name="four_pda" translatable="false">4PDA</string>
+    <string name="github" translatable="false">GitHub</string>
     <string name="about_message">Created by Keddnyo</string>
 
     <string name="android" translatable="false">Android</string>
@@ -17,8 +20,8 @@
     <string name="games">Games</string>
     <string name="book_depository">Book depository</string>
 
-    <string name="forum_section_icon">A forumSection section icon</string>
-    <string name="forum_section_open_link">Open 4PDA forumSection section</string>
+    <string name="forum_section_icon">A forum section icon</string>
+    <string name="forum_section_open_link">Open 4PDA forum section</string>
 
     <string name="update_is_available">Update %1$s is available</string>
     <string name="update_download">Download</string>
@@ -35,6 +38,5 @@
     <string name="response_basic_preview">Basic preview</string>
     <string name="response_public_preview">Preview</string>
     <string name="response_public_digest">Publish</string>
-    <string name="response_empty">There are no more updates</string>
     <string name="response_copied_to_clipboard">The digest has been copied to clipboard</string>
 </resources>

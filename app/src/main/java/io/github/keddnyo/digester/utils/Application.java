@@ -5,7 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 public class Application {
-    public String getVersionName(Context context) throws PackageManager.NameNotFoundException {
+    public static String getVersionName(Context context) throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
         return packageInfo.versionName;
     }

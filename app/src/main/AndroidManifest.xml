@@ -12,8 +12,13 @@
         android:theme="@style/Theme.Material3.DayNight"
         tools:targetApi="33">
         <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings" />
+        <activity
             android:name=".activities.RequestActivity"
             android:exported="false"
+            android:launchMode="singleTask"
             android:theme="@style/Theme.DigestER.Dialog" />
         <activity
             android:name=".activities.ResponseActivity"

@@ -1,5 +1,7 @@
 package io.github.keddnyo.digester.repositories;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 
 import io.github.keddnyo.digester.R;
@@ -15,7 +17,8 @@ public class ForumSections {
     public static final String WEARABLE_DEVICES_APPS_DIGEST_TOPIC_URL = "https://4pda.to/forum/index.php?showtopic=979689";
     public static final String BOOK_DEPOSITORY_DIGEST_TOPIC_URL = "https://4pda.to/forum/index.php?showtopic=902627";
 
-    public ArrayList<ForumSection> getForumArrayList() {
+    @NonNull
+    public static ArrayList<ForumSection> getForumArrayList() {
         ArrayList<ForumSection> forumSectionArrayList = new ArrayList<>();
 
         forumSectionArrayList.add(new ForumSection(ANDROID_APPS, 1, true, R.string.android, R.string.apps, R.drawable.apps, ANDROID_APPS_DIGEST_TOPIC_URL));

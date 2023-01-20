@@ -28,7 +28,7 @@ public class UpdateRequest {
                     String updateUrl = jsonObject.getJSONArray("assets").getJSONObject(0).getString("browser_download_url");
                     String updateName = jsonObject.getJSONArray("assets").getJSONObject(0).getString("name");
                     String updateVersion = jsonObject.getString("tag_name");
-                    String currentVersion = new Application().getVersionName(mainActivity);
+                    String currentVersion = Application.getVersionName(mainActivity);
 
                     Version update = new Version(updateVersion);
                     Version current = new Version(currentVersion);

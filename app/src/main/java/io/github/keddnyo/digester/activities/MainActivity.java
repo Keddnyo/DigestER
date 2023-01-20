@@ -1,13 +1,11 @@
 package io.github.keddnyo.digester.activities;
 
-import static io.github.keddnyo.digester.repositories.Constants.FOUR_PDA_PROFILE_URL;
-import static io.github.keddnyo.digester.repositories.Constants.GITHUB_PROFILE_URL;
-import static io.github.keddnyo.digester.repositories.Constants.GITHUB_REPOSITORY_URL;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,10 +19,8 @@ import io.github.keddnyo.digester.R;
 import io.github.keddnyo.digester.adapters.RecyclerViewAdapter;
 import io.github.keddnyo.digester.repositories.ForumSections;
 import io.github.keddnyo.digester.requests.UpdateRequest;
-import io.github.keddnyo.digester.utils.Application;
 import io.github.keddnyo.digester.utils.AsyncTask;
 import io.github.keddnyo.digester.utils.DownloadUtil;
-import io.github.keddnyo.digester.utils.URLOpener;
 
 public class MainActivity extends AppCompatActivity implements AsyncTask {
 
@@ -39,9 +35,13 @@ public class MainActivity extends AppCompatActivity implements AsyncTask {
 
         RecyclerView rv = findViewById(R.id.recyclerView);
         rv.setAdapter(recyclerViewAdapter);
-        recyclerViewAdapter.addForums(new ForumSections().getForumArrayList());
+        recyclerViewAdapter.addForums(ForumSections.getForumArrayList());
 
-        new UpdateRequest(this).checkForUpdates();
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if (sharedPreferences.getBoolean("settings_check_app_updates", true)) {
+            new UpdateRequest(this).checkForUpdates();
+        }
 
     }
 
@@ -55,22 +55,9 @@ public class MainActivity extends AppCompatActivity implements AsyncTask {
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        try {
-            String appName = getString(R.string.app_name);
-            String appVersion = new Application().getVersionName(this);
-
-            if (item.getItemId() == R.id.menuMainAbout) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-                alertDialogBuilder.setTitle(appName + " " + appVersion);
-                alertDialogBuilder.setMessage(R.string.about_message);
-                alertDialogBuilder.setPositiveButton(R.string.github, (dialog, which) -> new URLOpener().openUrl(this, GITHUB_PROFILE_URL));
-                alertDialogBuilder.setNegativeButton(R.string.four_pda, (dialog, which) -> new URLOpener().openUrl(this, FOUR_PDA_PROFILE_URL));
-                alertDialogBuilder.setNeutralButton(R.string.repository, (dialog, which) -> new URLOpener().openUrl(this, GITHUB_REPOSITORY_URL));
-                alertDialogBuilder.setCancelable(true);
-                alertDialogBuilder.show();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (item.getItemId() == R.id.menuMainSettings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
         }
 
         return true;
