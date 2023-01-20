@@ -36,10 +36,8 @@
     <string name="error_has_occurred">Error has occurred</string>
 
     <string name="response_digest_title">Digest</string>
-    <string name="response_code_preview">Code preview</string>
     <string name="response_formatted_preview">Formatted preview</string>
     <string name="response_digest_copy">Copy</string>
-    <string name="response_digest_preview">Preview</string>
     <string name="response_digest_public">Publish</string>
     <string name="response_copied_to_clipboard">The digest has been copied to clipboard</string>
 </resources>
