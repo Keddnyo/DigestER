@@ -6,38 +6,49 @@ import static io.github.keddnyo.digester.repositories.Constants.RESPONSE;
 import static io.github.keddnyo.digester.repositories.Constants.DIGEST_TOPIC_LINK;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Objects;
 
 import io.github.keddnyo.digester.R;
+import io.github.keddnyo.digester.utils.BBCode;
 import io.github.keddnyo.digester.utils.Clipboard;
 
 public class ResponseActivity extends AppCompatActivity {
+
+    private boolean showPreview = false;
+    TextView digestResponseTextView;
     String digestTopicLink;
     String digestResponse;
+    Spanned digestHtmlResponse;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_response);
 
-        TextView digestResponseTextView = findViewById(R.id.digestResponse);
+        digestResponseTextView = findViewById(R.id.digestResponse);
 
         Intent intent = getIntent();
         digestResponse = intent.getStringExtra(RESPONSE);
         digestTopicLink = intent.getStringExtra(DIGEST_TOPIC_LINK);
 
+        String htmlResponse = BBCode.parse(digestResponse);
+        digestHtmlResponse = HtmlCompat.fromHtml(htmlResponse, HtmlCompat.FROM_HTML_MODE_COMPACT);
+
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         digestResponseTextView.setText(digestResponse);
+        setSubtitle(showPreview);
     }
 
     @Override
@@ -67,10 +78,28 @@ public class ResponseActivity extends AppCompatActivity {
             Intent digestTopicIntent = new Intent(Intent.ACTION_VIEW);
             digestTopicIntent.setData(Uri.parse(digestTopicLink));
             startActivity(digestTopicIntent);
+        } else if (item.getItemId() == R.id.menuResponsePreview) {
+            if (showPreview) {
+                digestResponseTextView.setText(digestResponse);
+                showPreview = false;
+            } else {
+                digestResponseTextView.setText(digestHtmlResponse);
+                showPreview = true;
+            }
+
+            setSubtitle(showPreview);
         } else {
             onBackPressed();
         }
 
         return true;
+    }
+
+    private void setSubtitle(boolean isPreviewShown) {
+        if (isPreviewShown) {
+            Objects.requireNonNull(getSupportActionBar()).setSubtitle(R.string.response_basic_preview);
+        } else {
+            Objects.requireNonNull(getSupportActionBar()).setSubtitle(R.string.response_code_preview);
+        }
     }
 }

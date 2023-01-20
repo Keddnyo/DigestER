@@ -79,8 +79,11 @@ public class RequestActivity extends AppCompatActivity implements AsyncTask {
 
             DateValidator dateValidator = new DateValidator();
 
-            if (dateValidator.isDateInvalid(periodStart)) {
+            if (dateValidator.isDateInvalid(periodStart) && dateValidator.isDateInvalid(periodEnd)) {
                 requestPeriodStart.setError(dateIncorrect);
+                requestPeriodEnd.setError(dateIncorrect);
+            } else if (dateValidator.isDateInvalid(periodStart)) {
+                requestPeriodEnd.setError(dateIncorrect);
             } else if (dateValidator.isDateInvalid(periodEnd)) {
                 requestPeriodEnd.setError(dateIncorrect);
             } else {

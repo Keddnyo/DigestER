@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">DigestER</string>
+    <string name="app_name">DigestER</string>
 
     <string name="select_forum_section">Select a forumSection section</string>
     <string name="repository">Repository</string>
@@ -31,6 +31,9 @@
 
     <string name="error_has_occurred">Error has occurred</string>
 
+    <string name="response_code_preview">Code preview</string>
+    <string name="response_basic_preview">Basic preview</string>
+    <string name="response_public_preview">Preview</string>
     <string name="response_public_digest">Publish</string>
     <string name="response_empty">There are no more updates</string>
     <string name="response_copied_to_clipboard">The digest has been copied to clipboard</string>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Дайджест</string>
+
     <string name="select_forum_section">Выберите раздел</string>
     <string name="repository">Репозиторий</string>
     <string name="about">О программе</string>
-    <string name="about_message">Программу разработал Keddnyo</string>
+    <string name="about_message">Приложение разработал Keddnyo</string>
 
     <string name="wearable_devices">Носимые устройства</string>
     <string name="book_store">Книжная лавка</string>
@@ -25,6 +27,9 @@
 
     <string name="error_has_occurred">Ошибка получения дайджеста</string>
 
+    <string name="response_code_preview">Режим просмотра кода</string>
+    <string name="response_basic_preview">Упрощённый режим</string>
+    <string name="response_public_preview">Предосмотр</string>
     <string name="response_public_digest">Опубликовать</string>
     <string name="response_empty">Обновлений нет</string>
     <string name="response_copied_to_clipboard">Дайджест скопирован</string>

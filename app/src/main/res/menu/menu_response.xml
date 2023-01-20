@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menuResponsePreview"
+        android:icon="@drawable/ic_preview"
+        android:title="@string/response_public_preview"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/menuResponsePublish"
         android:icon="@drawable/ic_send"
         android:title="@string/response_public_digest"
