@@ -15,7 +15,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -28,8 +27,6 @@ import io.github.keddnyo.digester.utils.BBCode;
 import io.github.keddnyo.digester.utils.Clipboard;
 
 public class ResponseActivity extends AppCompatActivity {
-
-    private boolean showPreview;
     TextView digestResponseTextView;
     boolean isRecursive;
     String digestTopicLink;
@@ -42,7 +39,6 @@ public class ResponseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_response);
 
         digestResponseTextView = findViewById(R.id.digestResponse);
-        digestResponseTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         Intent intent = getIntent();
         digestResponse = intent.getStringExtra(RESPONSE);
@@ -66,6 +62,7 @@ public class ResponseActivity extends AppCompatActivity {
     @Override
     public boolean onPrepareOptionsMenu (Menu menu) {
         if (digestResponse.contains(DIGEST_HAS_NO_MORE_NEW_PROGRAMS) && digestResponse.contains(DIGEST_HAS_NO_MORE_UPDATES)) {
+            menu.findItem(R.id.menuResponseCopy).setVisible(false);
             menu.findItem(R.id.menuResponsePublish).setVisible(false);
         }
         return true;
