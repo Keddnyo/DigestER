@@ -32,7 +32,8 @@
     <string name="response_digest_title">Дайджест</string>
     <string name="response_code_preview">Режим просмотра кода</string>
     <string name="response_basic_preview">Упрощённый режим</string>
-    <string name="response_public_preview">Предосмотр</string>
-    <string name="response_public_digest">Опубликовать</string>
+    <string name="response_digest_copy">Скопировать</string>
+    <string name="response_digest_preview">Предосмотр</string>
+    <string name="response_digest_public">Опубликовать</string>
     <string name="response_copied_to_clipboard">Дайджест скопирован</string>
 </resources>

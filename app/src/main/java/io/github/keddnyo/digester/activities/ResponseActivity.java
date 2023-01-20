@@ -72,22 +72,30 @@ public class ResponseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
-        if (item.getItemId() == R.id.menuResponsePublish) {
-            new Clipboard().copyText(this, RESPONSE, digestResponse);
-            String textCopied = getString(R.string.response_copied_to_clipboard);
-            Toast.makeText(this, textCopied, Toast.LENGTH_LONG).show();
-
-            // Open digest topic on 4PDA
-            Intent digestTopicIntent = new Intent(Intent.ACTION_VIEW);
-            digestTopicIntent.setData(Uri.parse(digestTopicLink));
-            startActivity(digestTopicIntent);
+        if (item.getItemId() == R.id.menuResponseCopy) {
+            copyResponse();
         } else if (item.getItemId() == R.id.menuResponsePreview) {
             switchPreviewMode(showPreview);
+        } else if (item.getItemId() == R.id.menuResponsePublish) {
+            copyResponse();
+            openDigestTopic();
         } else {
             onBackPressed();
         }
 
         return true;
+    }
+
+    private void copyResponse() {
+        new Clipboard().copyText(this, RESPONSE, digestResponse);
+        String textCopied = getString(R.string.response_copied_to_clipboard);
+        Toast.makeText(this, textCopied, Toast.LENGTH_LONG).show();
+    }
+
+    private void openDigestTopic() {
+        Intent digestTopicIntent = new Intent(Intent.ACTION_VIEW);
+        digestTopicIntent.setData(Uri.parse(digestTopicLink));
+        startActivity(digestTopicIntent);
     }
 
     private void switchPreviewMode(boolean isPreviewShown) {
