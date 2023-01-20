@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="card_view_max_width">384dp</dimen>
+    <dimen name="card_view_max_width">512dp</dimen>
     <dimen name="card_view_icon_size">72dp</dimen>
     <dimen name="card_view_title_size">18sp</dimen>
     <dimen name="card_view_subtitle_size">14sp</dimen>

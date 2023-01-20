@@ -4,10 +4,11 @@
     <PreferenceCategory android:title="@string/response_digest_title">
 
         <SwitchPreferenceCompat
-            android:key="settings_digest_use_preview"
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:icon="@drawable/ic_preview"
-            android:title="@string/response_basic_preview" />
+            android:key="settings_digest_use_preview"
+            android:summary="@string/settings_digest_preview_summary"
+            android:title="@string/response_formatted_preview" />
 
     </PreferenceCategory>
 

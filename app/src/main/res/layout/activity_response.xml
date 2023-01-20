@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="@dimen/content_padding"
     app:layout_constraintBottom_toTopOf="@+id/digestResponseCopyButton"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -12,6 +13,7 @@
         android:id="@+id/digestResponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorSurfaceVariant"
         android:padding="@dimen/content_padding"
         android:singleLine="false" />
 

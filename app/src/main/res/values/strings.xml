@@ -4,6 +4,7 @@
     <string name="select_forum_section">Select a forum section</string>
 
     <string name="settings">Settings</string>
+    <string name="settings_digest_preview_summary">Experimental feature</string>
     <string name="settings_updates">Updates</string>
     <string name="settings_updates_observer">Check for updates</string>
     <string name="about">About</string>
@@ -36,7 +37,7 @@
 
     <string name="response_digest_title">Digest</string>
     <string name="response_code_preview">Code preview</string>
-    <string name="response_basic_preview">Basic preview</string>
+    <string name="response_formatted_preview">Formatted preview</string>
     <string name="response_digest_copy">Copy</string>
     <string name="response_digest_preview">Preview</string>
     <string name="response_digest_public">Publish</string>

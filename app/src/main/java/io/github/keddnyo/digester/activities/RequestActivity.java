@@ -98,6 +98,7 @@ public class RequestActivity extends AppCompatActivity implements AsyncTask {
                         Intent responseActivityIntent = new Intent(this, ResponseActivity.class);
                         responseActivityIntent.putExtra(RESPONSE, response);
                         responseActivityIntent.putExtra(DIGEST_TOPIC_LINK, topicLink);
+                        responseActivityIntent.putExtra(RECURSIVE, recursive);
                         try {
                             this.startActivity(responseActivityIntent);
                         } catch (Exception e) {
