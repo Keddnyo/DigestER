@@ -5,7 +5,7 @@
 
         <SwitchPreferenceCompat
             android:key="settings_digest_use_preview"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:icon="@drawable/ic_preview"
             android:title="@string/response_basic_preview" />
 

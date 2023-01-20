@@ -50,7 +50,7 @@ public class ResponseActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        showPreview = !sharedPreferences.getBoolean("settings_digest_use_preview", false);
+        showPreview = !sharedPreferences.getBoolean("settings_digest_use_preview", true);
         switchPreviewMode(showPreview);
     }
 
