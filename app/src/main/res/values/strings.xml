@@ -28,6 +28,8 @@
     <string name="update_download">Download</string>
     <string name="update_is_downloading">Update is downloading…</string>
 
+    <string name="connection_is_unavailable">Connection is unavailable</string>
+
     <string name="close_dialog">Close dialog</string>
     <string name="date_range_hint" translatable="false">dd.MM.yyyy</string>
     <string name="date_incorrect">Incorrect date</string>
@@ -39,5 +41,5 @@
     <string name="response_formatted_preview">Formatted preview</string>
     <string name="response_digest_copy">Copy</string>
     <string name="response_digest_public">Publish</string>
-    <string name="response_copied_to_clipboard">The digest has been copied to clipboard</string>
+    <string name="response_copied_to_clipboard">The digest has been copied to a clipboard</string>
 </resources>

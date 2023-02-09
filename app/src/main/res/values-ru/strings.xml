@@ -24,6 +24,8 @@
     <string name="update_download">Скачать</string>
     <string name="update_is_downloading">Загрузка обновления…</string>
 
+    <string name="connection_is_unavailable">Отсутствует подключение к сети</string>
+
     <string name="close_dialog">Закрыть окно</string>
     <string name="date_incorrect">Неверная дата</string>
     <string name="submit">Продолжить</string>

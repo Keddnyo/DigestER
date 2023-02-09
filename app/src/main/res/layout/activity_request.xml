@@ -96,7 +96,7 @@
                 tools:layout_editor_absoluteX="10dp" />
 
             <com.google.android.material.divider.MaterialDivider
-                android:layout_width="20dp"
+                android:layout_width="10dp"
                 android:layout_height="2dp"
                 android:layout_gravity="center" />
 

@@ -39,8 +39,8 @@ public class UpdateRequest {
                         mainActivity.runOnUiThread(() -> mainActivity.showUpdateDialog(updateUrl, updateName, updateVersion));
                     }
                 }
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            } catch (Exception ignored) {
+                mainActivity.showNoConnection();
             }
         });
     }

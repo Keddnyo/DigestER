@@ -73,4 +73,10 @@ public class MainActivity extends AppCompatActivity implements AsyncTask {
         });
         updateIsAvailableSnackbar.show();
     }
+
+    public void showNoConnection() {
+        View rootView = this.getWindow().getDecorView().findViewById(android.R.id.content);
+        String label = getString(R.string.connection_is_unavailable);
+        Snackbar.make(rootView, label, Snackbar.LENGTH_SHORT).show();
+    }
 }
